@@ -8,12 +8,16 @@ public class U1L04GuessingGame {
 	int guess = 0;
 	int guessNum = 0;
 	
-	JOptionPane.showMessageDialog(null, "This is a guessing game. Pick a number between 1 and 100");
+	JOptionPane.showMessageDialog(null, "This is a guessing game. Pick a number between 1 and 100.");
 	 
 	do {
 		String answer = JOptionPane.showInputDialog("What's your guess?");
 		double num = Double.parseDouble(answer);
 		guess = (int)(num);
+		if (guess < 1 || guess > 100) {
+			JOptionPane.showMessageDialog(null, "That's not between 1 and 100. Pick another number.");
+			continue;
+		}
 		guessNum++;
 		if (computerNum - guess <= 10 && computerNum - guess != 0 && computerNum - guess >=-10){
 			JOptionPane.showMessageDialog(null, "Your guess was ten points or less away.");
